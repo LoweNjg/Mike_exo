@@ -1,15 +1,26 @@
 <?php
 if (!empty($_POST)) {
-	$mike = explode(" ", $_POST["Mike"]);
+	$mike = explode(" ", rtrim($_POST["Mike"]));
+
 	if (count($mike) < 3)
 		echo "Nombre de paramètres insuffisant!";
+
 	elseif (count($mike) > 3)
 		echo "Nombre de paramètres trop important!";
+
 	elseif ($mike[0] != "Mike")
 		echo "Premier paramètre incorrect";
-	else {
-		echo "Paramètre 1 : $mike[1]<br>Paramètre 2 : $mike[2]";
+
+	elseif (!ctype_digit($mike[1])) {
+		echo "Paramètre $mike[1] de mauvais type";
 	}
+	elseif (!ctype_digit($mike[2])) {
+		echo "Paramètre $mike[2] de mauvais type";
+	}
+	else {
+		echo "Résultat :" ." ".($mike[1] + $mike[2]);
+	}
+
 }
  ?>
 <!DOCTYPE html>
