@@ -14,12 +14,18 @@ if (!empty($_POST)) {
 	elseif (!ctype_digit($mike[1])) {
 		echo "Paramètre $mike[1] de mauvais type";
 	}
+	elseif (!ctype_digit($mike[2])) {
+		echo "Paramètre $mike[2] de mauvais type";
+	}
 	else {
-		if ($mike[1] % 2 ==1) {
-		    echo "$mike[1] est impair";
+		if ($mike[1] < $mike[2]) {
+		    echo "la puissance est $mike[2]";
 		}
+        elseif ($mike[2] < $mike[1]) {
+            echo "la puissance est $mike[1]";
+        }
         else {
-            echo "$mike[1] est pair";
+            echo "equals";
         }
 	}
 }
