@@ -2,10 +2,10 @@
 if (!empty($_POST)) {
 	$mike = explode(" ", rtrim($_POST["Mike"]));
 
-	if (count($mike) < 3)
+	if (count($mike) < 2)
 		echo "Nombre de paramètres insuffisant!";
 
-	elseif (count($mike) > 3)
+	elseif (count($mike) > 2)
 		echo "Nombre de paramètres trop important!";
 
 	elseif ($mike[0] != "Mike")
